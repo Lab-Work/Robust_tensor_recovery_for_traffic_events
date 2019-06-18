@@ -42,7 +42,7 @@ function [X_hat, E_hat, iter] = inexact_alm_rpca3D(D, lambda, tol, maxIter)
 
 addpath PROPACK;
 addpath PROPACK/tensor_toolbox-master ;
-% 
+
 % 
 % if nargin < 2
 %     lambda = 1 / sqrt(m);

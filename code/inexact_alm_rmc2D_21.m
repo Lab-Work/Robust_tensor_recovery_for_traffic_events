@@ -51,17 +51,17 @@ addpath PROPACK;
 
 [m n] = size(D);
 
-if nargin < 2
+if nargin < 3
     lambda = 1 / sqrt(m);
 end
 
-if nargin < 3
+if nargin < 4
     tol = 1e-7;
 elseif tol == -1
     tol = 1e-7;
 end
 
-if nargin < 4
+if nargin < 5
     maxIter = 1000;
 elseif maxIter == -1
     maxIter = 1000;
@@ -74,8 +74,6 @@ norm_inf = norm( Y(:), inf) / lambda;
 dual_norm = max(norm_two, norm_inf);
 Y = Y / dual_norm;
 
-% Sigma = D~= 0;
-% Sigma_bar = D==0;  % projection matrix for non-observed entries
 X_hat = zeros( m, n);
 E_hat = zeros( m, n);
 O_hat = zeros( m, n);
