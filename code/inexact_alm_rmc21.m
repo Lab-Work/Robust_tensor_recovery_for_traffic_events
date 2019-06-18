@@ -171,14 +171,7 @@ while ~converged
     if stopCriterion < tol
         converged = true;
     end    
-    
-%     if mod( total_svd, 10) == 0
-% %         disp(['#svd ' num2str(total_svd) ' r(A) ' num2str(rank(X_hat))...
-% %             ' |E|_0 ' num2str(length(find(abs(E_hat)>0)))...
-% %             ' stopCriterion ' num2str(stopCriterion)]);
-%           disp(['norm(Z)' num2str(norm(Z))]);
-%     end    
-%     
+   
     if ~converged && iter >= maxIter
         disp('Maximum iterations reached') ;
         converged = 1 ;       
@@ -188,15 +181,12 @@ end
 % Treats the entire coloumn as outlier once it is corrupted. 
 % i.e. set the coloumn of low rank matrix to zero if the corresponding
 % Sparse matrix have value.
-%
+
 E_m = tenmat(E_hat,1);
 col_X = any(double(E_m) ~= 0);  %find index all nonzero coloumns of E
-% Col_X = repmat(col_X,size(E_m,1),1); 
 
 X_m = tenmat(X_hat,1);
 E_m = tenmat(D,1);
-% X_m = X_m .* Col_X;
-% E_m = D_m .* (~Col_X);
 X_m(:,col_X) = 0;
 E_m(:,~col_X) = 0;
 

@@ -163,14 +163,7 @@ while ~converged
     if stopCriterion < tol
         converged = true;
     end    
-    
-%     if mod( total_svd, 10) == 0
-% %         disp(['#svd ' num2str(total_svd) ' r(A) ' num2str(rank(X_hat))...
-% %             ' |E|_0 ' num2str(length(find(abs(E_hat)>0)))...
-% %             ' stopCriterion ' num2str(stopCriterion)]);
-%           disp(['norm(Z)' num2str(norm(Z))]);
-%     end    
-%     
+  
     if ~converged && iter >= maxIter
         disp('Maximum iterations reached') ;
         converged = 1 ;       
