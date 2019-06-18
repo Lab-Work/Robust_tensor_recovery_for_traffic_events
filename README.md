@@ -15,6 +15,8 @@ This repository contains the source code developed for robust tensor recovery fo
 - `/Figure/` Contains figures for traffic tensor arrangement. Simulation result figures are also saved here. 
 - `/TrafficData/` The traffic dataset folder, which contains traffic observation data arranged in tensor format.
 
+## Usage
+The code can be run in Matlab. `code/test/test_rmc.m` and `code/test/test_rpca.m` contain simulation test with self-defined problem size.
 
 ## Contact
 + Author: Yue Hu, Institute for Software Integrated Systems, Vanderbilt University
