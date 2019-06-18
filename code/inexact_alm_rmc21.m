@@ -51,10 +51,6 @@ function [X_hat, E_hat, O_hat,iter] = inexact_alm_rmc21(D,Sigma_bar, lambda, tol
 addpath PROPACK;
 addpath PROPACK/tensor_toolbox-master ;
 
-% if nargin < 2
-%     lambda = 1 / sqrt(m);
-% end
-
 if nargin < 4
     tol = 1e-7;
 elseif tol == -1
