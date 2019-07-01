@@ -4,7 +4,7 @@ addpath PROPACK/tensor_toolbox-master
 addpath ..
 
 clear;
-load('../traffic_data/Obs_Davidson_W17.mat')
+load('../../traffic_data/Obs_Davidson_W17.mat')
 
 % deal with daylight time, insert row# 1659
 Obs3 = [Obs2(1:1659,:); Obs2(1659:2855,:)];

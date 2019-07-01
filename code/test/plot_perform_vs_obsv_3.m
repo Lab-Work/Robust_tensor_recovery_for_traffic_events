@@ -3,7 +3,7 @@
 %at 0.1
 
 addpath PROPACK/tensor_toolbox-master
-addpath ../SimulationData
+addpath ../../SimulationData
 
 % load first data set
 load sim_rmc_0.1_70_8(1).mat

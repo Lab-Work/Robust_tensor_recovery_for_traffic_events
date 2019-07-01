@@ -43,11 +43,6 @@ function [X_hat, E_hat, iter] = inexact_alm_rpca3D(D, lambda, tol, maxIter)
 addpath PROPACK;
 addpath PROPACK/tensor_toolbox-master ;
 
-% 
-% if nargin < 2
-%     lambda = 1 / sqrt(m);
-% end
-
 if nargin < 3
     tol = 1e-7;
 elseif tol == -1
@@ -104,22 +99,18 @@ while ~converged
     % update E
     Y_mean = tenfun(@sum,Y{:})./D_mode;
     temp_T = D - X_hat + (1/mu)*Y_mean;
-%     temp_Tm = tenmat(temp_T,1);
+
     E_hat = tenfun(@max,temp_T - lambda/mu/D_mode, tenzeros(size(D)));
     E_hat = E_hat + tenfun(@min,temp_T + lambda/mu/D_mode, tenzeros(size(D)));
-    
-%     E_hat = tensor(temp_Tm);
-    
+
     % update X(i)
-    for i = 1:D_mode
-%         fprintf('sv%1.0f = %4.2f',i,sv{i})        
+    for i = 1:D_mode     
         temp = D - E_hat + (1/mu)*Y{i};
         temp_mat = tenmat(temp,i);
         n_ = size(temp_mat);
         n = min(n_);
         sv{i} = min(sv{i},n);
-%         fprintf('n=%4.2f',n) 
-%         disp(temp);
+
         if choosvd(n, sv{i}) == 1            
             [U, S, V] = lansvd(temp_mat.data, sv{i}, 'L');
         else
@@ -137,7 +128,7 @@ while ~converged
         temp_mat(:,:) = U(:, 1:svp) * diag(diagS(1:svp) - 1/mu) * V(:, 1:svp)'; 
     
         X_all{i} = tensor(temp_mat);
-%         fprintf('----\n')
+
     end
     
     X_hat = tenfun(@sum,X_all{:})./D_mode;   

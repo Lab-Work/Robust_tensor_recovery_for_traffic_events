@@ -106,18 +106,15 @@ X_all = cell(D_mode,1);
 
 while ~converged       
     iter = iter + 1;
-%     fprintf('mu is %.2f\n',mu)
     % update E
     Y_mean = tenfun(@sum,Y{:})./D_mode;
     temp_T = D - X_hat + (1/mu)*Y_mean - O_hat;
     temp_Tm = tenmat(temp_T,1);
     for j = 1:size(temp_Tm,2)
         temp_Tm(:,j) = temp_Tm(:,j) * max(0,1-lambda/(D_mode*mu*norm(temp_Tm(:,j))));
-%         E_m(:,j) = temp_Tm(:,j) * max(0,1-lambda/norm(temp_Tm(:,j)));
     end 
     E_hat = tensor(temp_Tm);
-%     E_hat = E_hat .* ~Sigma_bar;
-    
+
     % update X(i)
     for i = 1:D_mode
         temp = D - E_hat + (1/mu)*Y{i} - O_hat;

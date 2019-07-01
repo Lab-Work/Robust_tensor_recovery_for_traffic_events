@@ -1,7 +1,7 @@
 % this code compares the performance of rpca using l1 and l2,1 norm.
 
 addpath PROPACK/tensor_toolbox-master
-addpath ../SimulationData
+addpath ../../SimulationData
 
 % load first data set
 load sim_rpca3D(1).mat

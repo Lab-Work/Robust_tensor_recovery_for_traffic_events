@@ -76,7 +76,6 @@ for i = 1:D_mode
     Y{i} = Y0;
 end
 
-% Sigma = D~=0;   % Projection matrix for observed entries
 
 X_hat = tenzeros( size(D));
 E_hat = tenzeros( size(D));
@@ -110,7 +109,6 @@ while ~converged
     % update E
     Y_mean = tenfun(@sum,Y{:})./D_mode;
     temp_T = D - X_hat + (1/mu)*Y_mean - O_hat;
-%     temp_Tm = tenmat(temp_T,1);
     E_hat = tenfun(@max,temp_T - lambda/mu/D_mode, tenzeros(size(D)));
     E_hat = E_hat + tenfun(@min,temp_T + lambda/mu/D_mode, tenzeros(size(D)));
   

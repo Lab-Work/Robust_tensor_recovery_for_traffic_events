@@ -1,7 +1,7 @@
 %this code plots curve of results v.s observation ratio from tensor
 %completion with varying corruption ratio and the same rank (5,5,5)
 
-addpath ../SimulationData
+addpath ../../SimulationData
 
 % load first data set
 load sim_rmc_0.05_70_5.mat

@@ -4,6 +4,7 @@
 
 %%  initialize
 
+addpath ..;
 addpath PROPACK/tensor_toolbox-master
 addpath PROPACK;
 
@@ -83,7 +84,7 @@ else
     Precision_avg = (Precision);
 end
 %% save
-save ../SimulationData/sim_rmc3D_0.05_70_5.mat
+save ../../SimulationData/sim_rmc3D_0.05_70_5.mat
 %% plot
  
 % figure();

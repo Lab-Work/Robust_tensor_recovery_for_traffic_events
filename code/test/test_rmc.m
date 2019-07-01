@@ -4,7 +4,7 @@
 %% simulate
 clear;
 
-addpath ../*;
+addpath ..;
 addpath ../PROPACK;
 addpath ../PROPACK/tensor_toolbox-master ;
 

@@ -1,6 +1,6 @@
 %this code compares the performance of robust tensor completion using l1 and l2,1 norm.
 addpath PROPACK/tensor_toolbox-master
-addpath ../SimulationData
+addpath ../../SimulationData
 
 % load first data set
 load sim_rmc3D_0.1_70_5.mat

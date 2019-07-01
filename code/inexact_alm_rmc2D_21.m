@@ -97,10 +97,7 @@ while ~converged
     for j = 1:size(temp_T,2)
         E_hat(:,j) = temp_T(:,j) * max(0,1-lambda/norm(temp_T(:,j)));
     end    
-%     E_hat = E_hat .* Sigma
-%     col_X = ~any(E_hat);  %find all nonzero coloumns of E
-%     Col_X = repmat(col_X,m,1); 
-
+    
     % update X
     if choosvd(n, sv) == 1
         [U S V] = lansvd(D - E_hat + (1/mu)*Y - O_hat, sv, 'L');
@@ -116,8 +113,7 @@ while ~converged
     end
     
     X_hat = U(:, 1:svp) * diag(diagS(1:svp) - 1/mu) * V(:, 1:svp)';    
-%     X_hat = X_hat .* Col_X;
-    
+
     total_svd = total_svd + 1;
     
         
@@ -151,7 +147,6 @@ end
 % i.e. set the coloumn of low rank matrix to zero if the corresponding
 % Sparse matrix have value.
 %
-% E_hat = E_hat .* Sigma
 col_X = ~any(E_hat);  %find all nonzero coloumns of E
 Col_X = repmat(col_X,m,1); 
 

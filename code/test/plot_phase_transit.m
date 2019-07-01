@@ -2,7 +2,7 @@
 % of success for given ibservationratio and rank
 
 addpath PROPACK/tensor_toolbox-master
-addpath ../SimulationData
+addpath ../../SimulationData
 
 clear;
 load sim_block_v3.mat    % data simulated from draw_block.m

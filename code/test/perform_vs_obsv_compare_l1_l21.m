@@ -6,6 +6,10 @@
 clear;
 rng('default');
 rng(1);
+addpath ..
+addpath PROPACK;
+addpath PROPACK/tensor_toolbox-master
+
 
 %set parameters
 ni = 10; % run ni times

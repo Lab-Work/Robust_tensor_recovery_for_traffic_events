@@ -5,6 +5,7 @@
 clear;
 rng('default');
 rng(1);
+addpath ..
 addpath PROPACK;
 addpath PROPACK/tensor_toolbox-master
 
